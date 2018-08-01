@@ -14,7 +14,16 @@ body {
     width: 200px;
     background: #dfdfdf;
     border-radius: 5px;
-}body {
+    -webkit-transition: -webkit-transform 2s;
+    transition: -webkit-transform 2s;
+    transition: transform 2s;
+    transition: transform 2s, -webkit-transform 2s;
+}
+
+a {
+    color: red;
+}
+body {
     font-size: 30px;
     color: red;
 }

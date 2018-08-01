@@ -34,6 +34,16 @@ module.exports = {
                                 modules: true,
                                 localIdentName: '[path][name]_[local]_[hash:base64:5]'
                             }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                ident: 'postcss',   //ident 表明插件给postcss用
+                                plugins: [
+                                    // require('autoprefixer')(),
+                                    require('postcss-cssnext')()
+                                ]
+                            }
                         }
                     ]
                 })
