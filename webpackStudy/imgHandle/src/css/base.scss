@@ -1,0 +1,21 @@
+@import 'common';
+$commonColor: blue;
+
+html{
+    background: #ccddff
+}
+
+.box {
+    // composes: bigBox from './common.scss';
+    @include bigBox;
+    height: 200px;
+    width: 200px;
+    background: #dfdfdf;
+    border-radius: 5px;
+    transition: transform 2s;
+}
+
+p {
+    color: $commonColor;
+}
+

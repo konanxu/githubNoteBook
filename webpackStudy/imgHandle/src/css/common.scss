@@ -1,0 +1,20 @@
+$systemColor : red;
+
+body {
+    font-size: 30px;
+    color: $systemColor;
+}
+
+@mixin bigBox{
+    border: 2px solid #000;
+    .big1 {
+        width: 128px;
+        height: 128px;
+        float: left;
+    }
+    .ani1 {
+        height: 100%;
+        width: 100%;
+        background: url('../assets/imgs/konan.jpg') no-repeat;
+    }
+}

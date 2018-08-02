@@ -1,0 +1,25 @@
+body {
+  font-size: 30px;
+  color: red; }
+
+html {
+  background: #ccddff; }
+
+.box {
+  border: 2px solid #000;
+  height: 200px;
+  width: 200px;
+  background: #dfdfdf;
+  border-radius: 5px;
+  transition: transform 2s; }
+  .box .big1 {
+    width: 128px;
+    height: 128px;
+    float: left; }
+  .box .ani1 {
+    height: 100%;
+    width: 100%;
+    background: url(./assets/imgs/8c21592faca6862d7c9fb23cf5740256.jpg) no-repeat; }
+
+p {
+  color: blue; }
