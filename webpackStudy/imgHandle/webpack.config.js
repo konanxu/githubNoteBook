@@ -60,6 +60,23 @@ module.exports = {
               publicPath: './assets/imgs/',
               useRelativePath: true
             }
+          },
+          {
+            loader: 'img-loader',
+            options: {
+              // gifsicle: {
+              //   interlaced: false
+              // },
+              // mozjpeg: {
+              //   progressive: true,
+              //   arithmetic: false
+              // },
+              // optipng: false, // disabled
+              pngquant: {
+                floyd: 0.5,
+                speed: 2
+              }
+            }
           }
         ]
       }
