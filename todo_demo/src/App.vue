@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="test1">1234</div>
+    <Header></Header>
     <Todo></Todo>
     <Footer></Footer>
   </div>
@@ -9,13 +9,15 @@
 <script type="text/ecmascript-6">
 import Footer from './layout/footer.jsx'
 import Todo from './views/todo/todo.vue'
+import Header from './layout/header.vue'
 export default {
   data() {
     return {}
   },
   components: {
     Footer,
-    Todo
+    Todo,
+    Header
   }
 }
 </script>
