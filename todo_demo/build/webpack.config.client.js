@@ -35,8 +35,13 @@ if (isDev) {
         {
           test: /\.styl/,
           use: [
-            'style-loader',
+            'vue-style-loader',
             'css-loader',
+            // { css文件也可使用module方式加载
+            //   loader: 'css-loader',
+            //   module: true,
+            //   ocalIdentName: isDev ? '[path]-[name]-[hash:base64:$]' : '[hash:base64:$]'
+            // }
             {
               loader: 'postcss-loader',
               options: {

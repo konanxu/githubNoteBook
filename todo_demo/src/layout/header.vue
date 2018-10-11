@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div :class="$style.mainHeader">
     <span>{{title}}</span>
   </div>
 </template>
@@ -15,8 +15,8 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus" rel="stylesheet/stylus">
-.header
+<style scoped lang="stylus" rel="stylesheet/stylus" module>
+.main-header
   margin 30px auto
   width 600px
   text-align center
