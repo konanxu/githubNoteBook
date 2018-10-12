@@ -2,6 +2,7 @@ const path = require('path')
 const isDev = process.env.NODE_ENV === 'development'
 const createVueLoaderOptins = require('./vue-loader.config')
 const config = {
+  mode: process.env.NODE_ENV || 'production', //添加默认值
   target: 'web',
   entry: path.join(__dirname, '../src/main.js'),
   output: {
@@ -35,7 +36,7 @@ const config = {
       test: /\.(gif|jpg|jpeg|png|svg)$/,
       use: [
         {
-          loader: 'url-loader',  //图片转为base64 
+          loader: 'url-loader',  //图片转为base64
           options: {
             limit: 1024,        //小于1024 就转为base64
             name: 'resource/[path][name].[hash:8].[ext]'
@@ -47,4 +48,4 @@ const config = {
   }
 }
 
-module.exports = config 
+module.exports = config

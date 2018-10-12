@@ -45,7 +45,7 @@ if (isDev) {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true  //sass-loader会生成source 这里设置是直接使用提高效率   
+                sourceMap: true  //sass-loader会生成source 这里设置是直接使用提高效率
               }
             },
             'stylus-loader'
@@ -56,7 +56,7 @@ if (isDev) {
     devServer,
     plugins: defaultPlugins.concat([
       new webpack.HotModuleReplacementPlugin(),  //hot 模式所需
-      new webpack.NoEmitOnErrorsPlugin()    //过滤错误
+      // new webpack.NoEmitOnErrorsPlugin()    //过滤错误
     ])
   })
 } else {
@@ -64,7 +64,7 @@ if (isDev) {
   config = merge(baseConfig, {
     entry: {
       app: path.join(__dirname, '../src/main.js'),
-      vender: ['vue']
+      // vender: ['vue']
     },
     output: {
       filename: '[name].[chunkHash:8].js'
@@ -79,7 +79,7 @@ if (isDev) {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true  //sass-loader会生成source 这里设置是直接使用提高效率   
+                sourceMap: true  //sass-loader会生成source 这里设置是直接使用提高效率
               }
             },
             'stylus-loader'
@@ -87,14 +87,21 @@ if (isDev) {
         })
       }]
     },
+    optimization: {
+      splitChunks: {
+        chunks: 'all'
+      },
+      runtimeChunk: true
+    },
     plugins: defaultPlugins.concat([
       new ExtractPlugin('styles.[contenthash].css'),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vender'
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'runtime'
-      })
+      // webpack4中已废弃
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'vender'
+      // }),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'runtime'
+      // })
     ])
   })
 }
