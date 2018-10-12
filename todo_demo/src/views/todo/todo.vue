@@ -11,7 +11,7 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 
 export default {
-  data () {
+  data() {
     return {
       todos: [],
       filter: 'all',
@@ -23,7 +23,7 @@ export default {
     Tabs
   },
   methods: {
-    addTodo (e) {
+    addTodo(e) {
       this.todos.unshift({
         id: this.id++,
         content: e.target.value.trim(),
@@ -31,18 +31,18 @@ export default {
       })
       e.target.value = ''
     },
-    deleteItem (id) {
+    deleteItem(id) {
       this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     },
-    toggle (state) {
+    toggle(state) {
       this.filter = state
     },
-    clearAllCompleted () {
+    clearAllCompleted() {
       this.todos = this.todos.filter(todo => !todo.completed)
     }
   },
   computed: {
-    filteredTodos () {
+    filteredTodos() {
       if (this.filter === 'all') {
         return this.todos
       }
