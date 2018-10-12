@@ -23,7 +23,7 @@ export default {
     Tabs
   },
   methods: {
-    addTodo(e) {
+    addTodo (e) {
       this.todos.unshift({
         id: this.id++,
         content: e.target.value.trim(),
