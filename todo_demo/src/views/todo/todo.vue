@@ -1,11 +1,7 @@
 <template>
   <div class="real-app">
-    <input type="text"
-    class="add-input"
-    autofocus="autofocus"
-    placeholder="接下来要做点什么"
-    @keyup.enter="addTodo">
-    <Item v-for="(todo,index) in filteredTodos" :todo="todo" :key="index" @del="deleteItem"/>
+    <input type="text" class="add-input" autofocus="autofocus" placeholder="接下来要做点什么" @keyup.enter="addTodo">
+    <Item v-for="(todo,index) in filteredTodos" :todo="todo" :key="index" @del="deleteItem" />
     <Tabs :filter="filter" :todos="todos" @toggle="toggle" @clearAllCompleted="clearAllCompleted"></Tabs>
   </div>
 </template>
@@ -15,7 +11,7 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 
 export default {
-  data() {
+  data () {
     return {
       todos: [],
       filter: 'all',
@@ -35,18 +31,18 @@ export default {
       })
       e.target.value = ''
     },
-    deleteItem(id){
+    deleteItem (id) {
       this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     },
-    toggle(state) {
+    toggle (state) {
       this.filter = state
     },
-    clearAllCompleted() {
+    clearAllCompleted () {
       this.todos = this.todos.filter(todo => !todo.completed)
     }
   },
   computed: {
-    filteredTodos() {
+    filteredTodos () {
       if (this.filter === 'all') {
         return this.todos
       }
@@ -59,22 +55,24 @@ export default {
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
 .real-app {
-  width 600px
-  margin 0 auto 
-  box-shadow 0 0 5px #666
+  width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 5px #666;
 }
-.add-input 
-  position relative
-  margin 0
-  width 100%
-  font-size 24px
-  
+
+.add-input {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  font-size: 24px;
+}
+
 .test22 {
   border: 1px soli yellow;
   background-color: red;
-  box-sizing border-box
-  padding 16px 16px 16p 64px
-  box-shadow inset 0 -2px 1px rgba(0,0,0,0.3)
-  line-height 1.4em
+  box-sizing: border-box;
+  padding: 16px 16px 16p 64px;
+  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3);
+  line-height: 1.4em;
 }
 </style>

@@ -2,15 +2,15 @@ import '../assets/styles/footer.styl'
 
 // import className from '../assets/styles/footer.styl'
 export default {
-  data() {
+  data () {
     return {
       author: 'Konan'
     }
   },
-  render() {
+  render () {
     return (
       // {className.footer}
-      <div id="footer">  
+      <div id="footer">
         <span>write by {this.author} </span>
       </div>
     )

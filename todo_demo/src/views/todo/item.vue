@@ -18,12 +18,12 @@ export default {
       required: true
     }
   },
-  data() {
+  data () {
     return {}
   },
   components: {},
   methods: {
-    deletedTode() {
+    deletedTode () {
       this.$emit('del', this.todo.id)
     }
   }
