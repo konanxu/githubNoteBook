@@ -1,4 +1,4 @@
-import './databinding/index.js'
+import './computed/index.js'
 
 
 // import Vue from 'vue'
