@@ -1,4 +1,4 @@
-import './lifecycle/index.js'
+import './databinding/index.js'
 
 
 // import Vue from 'vue'
