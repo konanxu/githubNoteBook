@@ -1,4 +1,4 @@
-import './directive/index.js'
+import './directive2/index.js'
 
 
 // import Vue from 'vue'
