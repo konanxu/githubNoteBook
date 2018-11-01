@@ -1,1 +1,1 @@
-import './extend.js'
+import './model.js'
