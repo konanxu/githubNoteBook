@@ -1,1 +1,1 @@
-import './model.js'
+import './slot.js'
