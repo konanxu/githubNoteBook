@@ -24,7 +24,9 @@ const defaultPlugins = [
       NODE_ENV: isDev ? '"development"' : '"production"'
     }
   }),
-  new htmlWebpackPlugin()   //生成入口
+  new htmlWebpackPlugin({
+    template: path.join(__dirname, 'template.html')
+  })   //生成入口
 ]
 
 if (isDev) {
@@ -45,7 +47,7 @@ if (isDev) {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true  //sass-loader会生成source 这里设置是直接使用提高效率   
+                sourceMap: true  //sass-loader会生成source 这里设置是直接使用提高效率
               }
             },
             'stylus-loader'
@@ -79,7 +81,7 @@ if (isDev) {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true  //sass-loader会生成source 这里设置是直接使用提高效率   
+                sourceMap: true  //sass-loader会生成source 这里设置是直接使用提高效率
               }
             },
             'stylus-loader'
