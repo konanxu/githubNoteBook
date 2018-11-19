@@ -6,7 +6,8 @@ const config = {
   entry: path.join(__dirname, '../src/main.js'),
   output: {
     filename: 'bundle.[hash:8].js',
-    path: path.join(__dirname, '../dist')
+    path: path.join(__dirname, '../dist'),
+    publicPath: '/public/'
   },
   module: {
     rules: [
@@ -35,7 +36,7 @@ const config = {
       test: /\.(gif|jpg|jpeg|png|svg)$/,
       use: [
         {
-          loader: 'url-loader',  //图片转为base64 
+          loader: 'url-loader',  //图片转为base64
           options: {
             limit: 1024,        //小于1024 就转为base64
             name: 'resource/[path][name].[hash:8].[ext]'
@@ -47,4 +48,4 @@ const config = {
   }
 }
 
-module.exports = config 
+module.exports = config

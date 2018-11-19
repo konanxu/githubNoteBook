@@ -14,6 +14,9 @@ const devServer = {
   overlay: {
     errors: true
   },
+  historyApiFallback: {  // 路由错误返回
+    index: '/public/index.html'
+  },
   hot: true
 }
 

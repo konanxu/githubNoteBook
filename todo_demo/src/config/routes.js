@@ -1,10 +1,14 @@
 export default [
   {
+    path: '/',
+    redirect: '/app'
+  },
+  {
     path: '/app',
-    component: () => require('../views/todo/todo.vue')
+    component: () => import('../views/todo/todo.vue')
   },
   {
     path: '/login',
-    component: () => require('../views/login.vue')
+    component: () => import('../views/login/login.vue')
   }
 ]

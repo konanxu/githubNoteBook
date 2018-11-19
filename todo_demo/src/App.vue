@@ -1,7 +1,11 @@
 <template>
   <div class="page">
     <Header></Header>
-    <Todo></Todo>
+    <!-- <Todo></Todo> -->
+    <router-link to="/app">app</router-link>
+    <router-link to="/login">login</router-link>
+    <!-- <router-link to="/login/exact" exact>login exact</router-link> -->
+    <router-view />
     <Footer></Footer>
   </div>
 </template>
@@ -25,5 +29,8 @@ export default {
 <style scoped lang="stylus" rel="stylesheet/stylus">
 .test1 {
   color: red;
+}
+a.active-link {
+  color: red
 }
 </style>

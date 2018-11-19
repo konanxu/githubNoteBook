@@ -8,6 +8,23 @@ import routes from './routes'
 
 export default () => {
   return new Router({
-    routes
+    routes,
+    mode: 'history',
+    linkActiveClass: 'active-link', // 默认值router-link-active
+    linkExactActiveClass: 'exact-active-link',
+    scrollBehavior (to, from, savedPosition) { // 滚动记录
+      if (savedPosition) {
+        return savedPosition
+      } else {
+        return { x: 0, y: 0 }
+      }
+    },
+    // parseQuery(query) { // 字符串 => JSON Obj
+
+    // },
+    // stringifyQuery(obj) {
+
+    // }
+    fallback: true
   })
 }
