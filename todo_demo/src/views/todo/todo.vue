@@ -11,6 +11,10 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 
 export default {
+  props: ['qid'],
+  mounted() {
+    console.log(this.qid)
+  },
   data() {
     return {
       todos: [],
