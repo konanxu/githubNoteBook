@@ -1,6 +1,7 @@
 <template>
   <div class="page">
     <Header></Header>
+    <p>{{ count }}</p>
     <!-- <Todo></Todo> -->
     <router-link to="/app">app</router-link>
     <router-link to="/login">login</router-link>
@@ -24,6 +25,17 @@ export default {
   components: {
     Footer,
     Header
+  },
+  computed: {
+    count() {
+      return this.$store.state.count
+    }
+  },
+  mounted() {
+    let i = 1
+    setInterval(() => {
+      this.$store.commit('updateCount', i++)
+    }, 1000)
   }
 }
 </script>

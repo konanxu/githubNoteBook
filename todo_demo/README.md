@@ -1,5 +1,6 @@
+# Study Line
 
-### eslint 安装依赖项
+## eslint 安装依赖项
 
 ```
 npm i eslint eslint-config-standard eslint-plugin-standard eslint-plugin-prose eslint-plugin-import eslint-plugin-node eslint-plugin-html -D
@@ -37,4 +38,25 @@ const Foo = {
 
 组件内部beforeRouteLeave在表单更改离开页面场景使用
 不支持要安装babel-plugin-dynamic-import-node
+
+```js
+export default () => {
+  return new Vuex.Store({
+    state: {
+      count: 0
+    },
+    mutations: {
+      updateCount(state, num) {
+        state.count = num
+      }
+    }
+  })
+}
+```
+
+import createStore from './store/store.js'
+
+const store = createStore()
+
+默认导出createStore  好配置 SSR准备
 
