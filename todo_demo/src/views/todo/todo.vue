@@ -11,6 +11,24 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 
 export default {
+  beforeRouteEnter(to, from, next) {
+    console.log('todo before enter')
+    next(vm => {
+      console.log('after enter vm.id is ', vm.id)
+    })
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log('todo before update')
+    next()
+    // 同种路由参数不一样时 使用，相较watch 减少开销
+  },
+  beforeRouteLeave(to, from, next) {
+    console.log('todo before leave')
+    if (global.confirm('are you ok?')) {
+      next()
+    }
+  },
+
   props: ['qid'],
   mounted() {
     console.log(this.qid)

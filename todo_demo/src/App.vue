@@ -9,12 +9,13 @@
       <router-view />
     </transition>
     <Footer></Footer>
+    <!-- <router-view name='a'/>  route 配置 components: {default: xx, a: yy} -->
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 import Footer from './layout/footer.jsx'
-import Todo from './views/todo/todo.vue'
+// import Todo from './views/todo/todo.vue'
 import Header from './layout/header.vue'
 export default {
   data () {
@@ -22,7 +23,6 @@ export default {
   },
   components: {
     Footer,
-    Todo,
     Header
   }
 }
