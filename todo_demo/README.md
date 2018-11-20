@@ -96,3 +96,26 @@ import { mapState } from 'vuex'
 
 解析babel plugin添加 @babel/plugin-proposal-object-rest-spread
 
+## mutations 
+
+```js
+// mutations只接收二个参数，第二个参数为对象
+    updateCount(state, num) {
+      state.count = num
+    }
+
+
+    return new Vuex.Store({
+      // 禁止访问$store修改state 正式环境要关闭
+      strict: isDev,
+      state: defaultState,
+      mutations,
+      getters
+    })
+```
+
+## actions mutations
+
+  - actions : 异步使用
+  - mutations :  必须同步
+  

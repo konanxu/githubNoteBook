@@ -16,7 +16,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import Footer from './layout/footer.jsx'
 // import Todo from './views/todo/todo.vue'
 import Header from './layout/header.vue'
@@ -27,6 +27,10 @@ export default {
   components: {
     Footer,
     Header
+  },
+  methods: {
+    ...mapActions(['updateCountAsync']),
+    ...mapMutations(['updateCount'])
   },
   computed: {
     // count() {
@@ -49,10 +53,19 @@ export default {
     // }
   },
   mounted() {
-    let i = 1
-    setInterval(() => {
-      this.$store.commit('updateCount', i++)
-    }, 1000)
+    // let i = 1
+    // setInterval(() => {
+    //   this.$store.commit('updateCount', i++)
+    // }, 1000)
+
+    // this.$store.dispatch('updateCountAsync', {
+    //   num: 5,
+    //   time: 5000
+    // })
+    this.updateCountAsync({
+      num: 10,
+      time: 3000
+    })
   }
 }
 </script>
