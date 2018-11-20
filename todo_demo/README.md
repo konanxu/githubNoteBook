@@ -13,8 +13,8 @@ npm i eslint-loader babel-eslint -D
 
 component: () => import('') 异步加载 加快首屏加载
 
-
-### 导航守卫
+---
+## 导航守卫
 ```js
 const Foo = {
   template: `...`,
@@ -54,9 +54,45 @@ export default () => {
 }
 ```
 
+__默认导出createStore  好配置 SSR准备__
+
+```js
 import createStore from './store/store.js'
 
 const store = createStore()
 
-默认导出createStore  好配置 SSR准备
+export default () => {
+    return new Vuex.Store({
+      state: defaultState, // SSR会覆盖state所以定义defaultState
+      mutations
+    })
+  }
+```
+---
+## Vuex之state和getters 
+
+
+__...mapState 代替访问$store__
+```js
+import { mapState } from 'vuex'
+    //多种访问方式
+    // 1
+    count() {
+      return this.$store.state.count
+    },
+
+    // 2
+    ...mapState(['count']),
+
+    // 3
+    ...mapState({
+      counter: 'count'
+    }),
+    // 4
+    ...mapState({
+      counter: state => state.count
+    }),
+```
+
+解析babel plugin添加 @babel/plugin-proposal-object-rest-spread
 

@@ -1,7 +1,8 @@
 <template>
   <div class="page">
     <Header></Header>
-    <p>{{ count }}</p>
+    <p>{{ counter }}</p>
+    <p>{{ fullName }}</p>
     <!-- <Todo></Todo> -->
     <router-link to="/app">app</router-link>
     <router-link to="/login">login</router-link>
@@ -15,11 +16,12 @@
 </template>
 
 <script type="text/ecmascript-6">
+import { mapState, mapGetters } from 'vuex'
 import Footer from './layout/footer.jsx'
 // import Todo from './views/todo/todo.vue'
 import Header from './layout/header.vue'
 export default {
-  data () {
+  data() {
     return {}
   },
   components: {
@@ -27,9 +29,24 @@ export default {
     Header
   },
   computed: {
-    count() {
-      return this.$store.state.count
-    }
+    // count() {
+    //   return this.$store.state.count
+    // },
+
+    // ...mapState(['count']),
+
+    // ...mapState({
+    //   counter: 'count'
+    // }),
+
+    ...mapState({
+      counter: state => state.count
+    }),
+    ...mapGetters(['fullName'])
+
+    // fullName() {
+    //   return this.$store.getters.fullName
+    // }
   },
   mounted() {
     let i = 1
@@ -44,7 +61,8 @@ export default {
 .test1 {
   color: red;
 }
+
 a.active-link {
-  color: red
+  color: red;
 }
 </style>
