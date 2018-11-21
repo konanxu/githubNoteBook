@@ -3,6 +3,9 @@
     <Header></Header>
     <p>{{ counter }}</p>
     <p>{{ fullName }}</p>
+    <p>textA: {{ textA }}</p>
+    <p>{{ textPlus }}</p>
+    <p>textC {{ textC }}</p>
     <!-- <Todo></Todo> -->
     <router-link to="/app">app</router-link>
     <router-link to="/login">login</router-link>
@@ -29,8 +32,8 @@ export default {
     Header
   },
   methods: {
-    ...mapActions(['updateCountAsync']),
-    ...mapMutations(['updateCount'])
+    ...mapActions(['updateCountAsync', 'a/add']),
+    ...mapMutations(['updateCount', 'a/updateText'])
   },
   computed: {
     // count() {
@@ -44,9 +47,14 @@ export default {
     // }),
 
     ...mapState({
-      counter: state => state.count
+      counter: state => state.count,
+      textA: state => state.a.text,
+      textC: state => state.c.text
     }),
-    ...mapGetters(['fullName'])
+    ...mapGetters({
+      'fullName': 'fullName',
+      'textPlus': 'a/textPlus'
+    })
 
     // fullName() {
     //   return this.$store.getters.fullName
@@ -66,6 +74,8 @@ export default {
       num: 10,
       time: 3000
     })
+    // this['a/updateText']('23333')
+    this['a/add']()
   }
 }
 </script>

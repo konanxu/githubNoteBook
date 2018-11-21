@@ -119,3 +119,46 @@ import { mapState } from 'vuex'
   - actions : 异步使用
   - mutations :  必须同步
   
+## modules
+```js
+  namespaced: true,
+  ...mapMutations(['updateCount', 'a/updateText'])
+  this['a/updateText']('23333')
+```
+ - 不声明namespaced 可以访问到rootState的属性
+ - 若声明namespaced为true 则要添加{ root: true }
+  **动态注册**
+```js
+store.registerModule('c', {
+  state: {
+    text: 3
+  }
+})
+```
+**vuex 热更新**
+
+```js
+if (module.hot) {
+      module.hot.accept([
+        './state/state.js',
+        './mutations/mutations.js',
+        './actions/actions.js',
+        './getters/getters.js'
+      ], () => {
+        const newState = require('./state/state').default
+        const newMutations = require('./mutations/mutations').default
+        const newActions = require('./actions/actions').default
+        const newGetters = require('./getters/getters').default
+        store.hotUpdate({
+          state: newState,
+          mutations: newMutations,
+          actions: newActions,
+          getters: newGetters
+        })
+      })
+```
+
+
+
+
+
