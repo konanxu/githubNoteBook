@@ -52,8 +52,8 @@ export default {
       textC: state => state.c.text
     }),
     ...mapGetters({
-      'fullName': 'fullName',
-      'textPlus': 'a/textPlus'
+      fullName: 'fullName',
+      textPlus: 'a/textPlus'
     })
 
     // fullName() {
@@ -61,19 +61,29 @@ export default {
     // }
   },
   mounted() {
-    // let i = 1
-    // setInterval(() => {
-    //   this.$store.commit('updateCount', i++)
-    // }, 1000)
+    let i = 1
+    setInterval(() => {
+      this.$store.commit('updateCount', i++)
+    }, 1000)
+
+    const handle = this.$store.watch(
+      state => state.count,
+      (newCount) => {
+        // console.log('newCount watch', newCount)
+      }
+    )
+    setTimeout(() => {
+      handle()
+    }, 5000)
 
     // this.$store.dispatch('updateCountAsync', {
     //   num: 5,
     //   time: 5000
     // })
-    this.updateCountAsync({
-      num: 10,
-      time: 3000
-    })
+    // this.updateCountAsync({
+    //   num: 10,
+    //   time: 3000
+    // })
     // this['a/updateText']('23333')
     this['a/add']()
   }

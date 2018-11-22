@@ -21,6 +21,21 @@ store.registerModule('c', {
   }
 })
 
+// store.watch(state => state.count, (newCount) => {
+//   console.log('newCount watch', newCount)
+// })
+
+// 订阅mutation调用 回调函数
+// store.subscribe((mutation, state) => {
+//   console.log(mutation.type)
+//   console.log(mutation.payload)
+// })
+
+store.subscribeAction((action, state) => {
+  console.log(action.type)
+  console.log(action.payload)
+})
+
 router.beforeEach((to, from, next) => {
   console.log('before each invoked')
   next()

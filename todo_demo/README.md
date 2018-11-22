@@ -69,7 +69,7 @@ export default () => {
   }
 ```
 ---
-## Vuex之state和getters 
+## Vuex之state和getters
 
 
 __...mapState 代替访问$store__
@@ -96,7 +96,7 @@ import { mapState } from 'vuex'
 
 解析babel plugin添加 @babel/plugin-proposal-object-rest-spread
 
-## mutations 
+## mutations
 
 ```js
 // mutations只接收二个参数，第二个参数为对象
@@ -118,7 +118,7 @@ import { mapState } from 'vuex'
 
   - actions : 异步使用
   - mutations :  必须同步
-  
+
 ## modules
 ```js
   namespaced: true,
@@ -158,7 +158,28 @@ if (module.hot) {
       })
 ```
 
+    响应式地侦听 fn 的返回值，当值改变时调用回调函数。fn 接收 store 的 state 作为第一个参数，其 getter 作为第二个参数。最后接收一个可选的对象参数表示 Vue 的 vm.$watch 方法的参数。
+    要停止侦听，调用此方法返回的函数即可停止侦听。
 
+```js
+    const handle = this.$store.watch(
+      state => state.count,
+      (newCount) => {
+        console.log('newCount watch', newCount)
+      }
+    )
+    setTimeout(() => {
+      handle()
+    }, 5000)
+```
 
-
-
+订阅一般结合插件使用
+```js
+const myPlugin = store => {
+  console.log('plugin invoked')
+  store.subscribe((mutation, state) => {
+    console.log(mutation.type)
+    console.log(mutation.payload)
+  })
+```
+**watch 订阅 都是调用句柄返回函数 来结束**
