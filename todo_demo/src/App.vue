@@ -1,11 +1,11 @@
 <template>
   <div class="page">
     <Header></Header>
-    <p>{{ counter }}</p>
+    <!-- <p>{{ counter }}</p>
     <p>{{ fullName }}</p>
     <p>textA: {{ textA }}</p>
     <p>{{ textPlus }}</p>
-    <p>textC {{ textC }}</p>
+    <p>textC {{ textC }}</p> -->
     <!-- <Todo></Todo> -->
     <router-link to="/app">app</router-link>
     <router-link to="/login">login</router-link>
@@ -19,7 +19,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
+// import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 import Footer from './layout/footer.jsx'
 // import Todo from './views/todo/todo.vue'
 import Header from './layout/header.vue'
@@ -32,8 +32,8 @@ export default {
     Header
   },
   methods: {
-    ...mapActions(['updateCountAsync', 'a/add']),
-    ...mapMutations(['updateCount', 'a/updateText'])
+    // ...mapActions(['updateCountAsync', 'a/add']),
+    // ...mapMutations(['updateCount', 'a/updateText'])
   },
   computed: {
     // count() {
@@ -46,15 +46,15 @@ export default {
     //   counter: 'count'
     // }),
 
-    ...mapState({
-      counter: state => state.count,
-      textA: state => state.a.text,
-      textC: state => state.c.text
-    }),
-    ...mapGetters({
-      fullName: 'fullName',
-      textPlus: 'a/textPlus'
-    })
+    // ...mapState({
+    //   counter: state => state.count,
+    //   textA: state => state.a.text,
+    //   textC: state => state.c.text
+    // }),
+    // ...mapGetters({
+    //   fullName: 'fullName',
+    //   textPlus: 'a/textPlus'
+    // })
 
     // fullName() {
     //   return this.$store.getters.fullName

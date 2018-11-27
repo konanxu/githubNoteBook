@@ -25,6 +25,6 @@ export default () => {
     // stringifyQuery(obj) {
 
     // }
-    fallback: true
+    fallback: false
   })
 }

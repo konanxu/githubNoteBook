@@ -5,7 +5,7 @@ const ExtractPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.config.base')
-
+const VueClientplugin = require('vue-server-renderer/client-plugin')
 let config
 
 const devServer = {
@@ -29,7 +29,8 @@ const defaultPlugins = [
   }),
   new htmlWebpackPlugin({
     template: path.join(__dirname, 'template.html')
-  })   //生成入口
+  }),   //生成入口
+  new VueClientplugin()
 ]
 
 if (isDev) {
