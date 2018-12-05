@@ -24,6 +24,9 @@ import Footer from './layout/footer.jsx'
 // import Todo from './views/todo/todo.vue'
 import Header from './layout/header.vue'
 export default {
+  metaInfo: {
+    title: 'konan\'s app'
+  },
   data() {
     return {}
   },

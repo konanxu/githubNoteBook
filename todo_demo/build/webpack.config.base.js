@@ -3,7 +3,7 @@ const isDev = process.env.NODE_ENV === 'development'
 const createVueLoaderOptins = require('./vue-loader.config')
 const config = {
   target: 'web',
-  entry: path.join(__dirname, '../src/main.js'),
+  entry: path.join(__dirname, '../src/client-entry.js'),
   output: {
     filename: 'bundle.[hash:8].js',
     path: path.join(__dirname, '../dist'),
