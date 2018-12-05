@@ -85,7 +85,7 @@ export default {
     //   time: 3000
     // })
     // this['a/updateText']('23333')
-    this['a/add']()
+    // this['a/add']()
   }
 }
 </script>

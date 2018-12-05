@@ -183,3 +183,7 @@ const myPlugin = store => {
   })
 ```
 **watch 订阅 都是调用句柄返回函数 来结束**
+
+
+nodemon 热重启
+concurrently 多条命令执行

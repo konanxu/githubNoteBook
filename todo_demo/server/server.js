@@ -4,6 +4,12 @@ const pageRouter = require('./routers/dev-ssr')
 
 const app = new Koa()
 
+const send = require('koa-send')
+
+const path = require('path')
+
+const favicon = require('koa-favicon')
+
 const isDev = process.env.NODE_ENV === 'development'
 
 app.use(async (ctx, next) => {
@@ -14,6 +20,17 @@ app.use(async (ctx, next) => {
     console.log(err)
     ctx.status = 500
     ctx.body = isDev ? err.message : 'please try again'
+  }
+})
+app.use(favicon(path.join(__dirname, '/public/favicon.ico')))
+app.use(async (ctx, next) => {
+  console.log(ctx.path)
+  if (ctx.path === '/favicon.ico') {
+    await send(ctx, '/favicon.ico', { root: path.join(__dirname, '../') })
+  } else if (ctx.path === '/robots.txt') {
+    ctx.body = ''
+  } else {
+    await next()
   }
 })
 app.use(pageRouter.routes()).use(pageRouter.allowedMethods())

@@ -54,9 +54,10 @@ router.beforeResolve((to, from, next) => {
 router.afterEach((to, from) => {
   console.log('after each invoked')
 })
-
+/* eslint-disable no-new */
 new Vue({
+  el: '#root',
   router,
   store,
   render: (h) => h(App)
-}).$mount('#root')
+})
