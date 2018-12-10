@@ -73,7 +73,8 @@ if (isDev) {
       vender: ['vue']
     },
     output: {
-      filename: '[name].[chunkHash:8].js'
+      filename: '[name].[chunkHash:8].js',
+      publicPath: '/public/'
     },
     module: {
       rules: [{
