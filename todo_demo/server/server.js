@@ -8,8 +8,6 @@ const send = require('koa-send')
 
 const path = require('path')
 
-const favicon = require('koa-favicon')
-
 const isDev = process.env.NODE_ENV === 'development'
 
 const staticRouter = require('./routers/static')
