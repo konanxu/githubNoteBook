@@ -14,7 +14,9 @@ export default {
   data() {
     return {
       verticalOffset: 0,
-      autoClose: 3000
+      autoClose: 5000,
+      height: 0,
+      visible: false
     }
   },
   mounted () {
@@ -32,9 +34,12 @@ export default {
       if (this.timer) {
         clearTimeout(this.timer)
       }
+    },
+    afterEnter() {
+      this.height = this.$el.offsetHeight
     }
   },
   beforeDestroy() {
-    this.clearTimeout()
+    this.clearTimer()
   }
 }

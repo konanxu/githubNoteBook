@@ -1,5 +1,5 @@
 <template>
-  <transition name='fade'>
+  <transition name='fade' @after-leave="afterLeave" @after-enter="afterEnter">
     <div class="notification" :style='style' v-show="visible">
       <span class="content">{{content}}</span>
       <a
@@ -33,7 +33,11 @@ export default {
     handClose(e) {
       e.preventDefault()
       this.$emit('close')
-    }
+    },
+    afterLeave() {
+      this.$emit('closed')
+    },
+    afterEnter() {}
   },
   computed: {
     style () {
