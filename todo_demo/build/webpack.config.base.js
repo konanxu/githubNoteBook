@@ -22,7 +22,7 @@ const config = {
       loader: 'vue-loader',
       options: createVueLoaderOptins(isDev)
     }, {
-      test: /\.jsx$/,
+      test: /\.(jsx|js)$/,
       loader: 'babel-loader'
     },
     {

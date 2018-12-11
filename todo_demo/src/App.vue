@@ -13,6 +13,8 @@
     <transition name="fade">
       <router-view />
     </transition>
+    <!-- <notification content='text notify'></notification> -->
+    <button @click="notify">click me</button>
     <Footer></Footer>
     <!-- <router-view name='a'/>  route 配置 components: {default: xx, a: yy} -->
   </div>
@@ -37,6 +39,12 @@ export default {
   methods: {
     // ...mapActions(['updateCountAsync', 'a/add']),
     // ...mapMutations(['updateCount', 'a/updateText'])
+    notify() {
+      this.$notify({
+        content: 'text $notify',
+        btn: 'close'
+      })
+    }
   },
   computed: {
     // count() {
@@ -64,20 +72,20 @@ export default {
     // }
   },
   mounted() {
-    let i = 1
-    setInterval(() => {
-      this.$store.commit('updateCount', i++)
-    }, 1000)
+    // let i = 1
+    // setInterval(() => {
+    //   this.$store.commit('updateCount', i++)
+    // }, 1000)
 
-    const handle = this.$store.watch(
-      state => state.count,
-      (newCount) => {
-        // console.log('newCount watch', newCount)
-      }
-    )
-    setTimeout(() => {
-      handle()
-    }, 5000)
+    // const handle = this.$store.watch(
+    //   state => state.count,
+    //   (newCount) => {
+    //     // console.log('newCount watch', newCount)
+    //   }
+    // )
+    // setTimeout(() => {
+    //   handle()
+    // }, 5000)
 
     // this.$store.dispatch('updateCountAsync', {
     //   num: 5,
@@ -89,6 +97,10 @@ export default {
     // })
     // this['a/updateText']('23333')
     // this['a/add']()
+    this.$notify({
+      content: 'test $notify',
+      btn: 'close'
+    })
   }
 }
 </script>

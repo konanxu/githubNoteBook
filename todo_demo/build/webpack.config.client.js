@@ -14,6 +14,7 @@ const devServer = {
   overlay: {
     errors: true
   },
+  headers: { 'Access-Control-Allow-Origin' : '*' },
   historyApiFallback: {  // 路由错误返回
     index: '/public/index.html'
   },
