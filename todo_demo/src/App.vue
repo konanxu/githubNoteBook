@@ -10,6 +10,7 @@
     <router-link to="/app">app</router-link>
     <router-link to="/login">login</router-link>
     <!-- <router-link to="/login/exact" exact>login exact</router-link> -->
+
     <transition name="fade">
       <router-view />
     </transition>
@@ -27,7 +28,7 @@ import Footer from './layout/footer.jsx'
 import Header from './layout/header.vue'
 export default {
   metaInfo: {
-    title: 'konan\'s app'
+    title: "konan's app"
   },
   data() {
     return {}
@@ -50,13 +51,10 @@ export default {
     // count() {
     //   return this.$store.state.count
     // },
-
     // ...mapState(['count']),
-
     // ...mapState({
     //   counter: 'count'
     // }),
-
     // ...mapState({
     //   counter: state => state.count,
     //   textA: state => state.a.text,
@@ -66,7 +64,6 @@ export default {
     //   fullName: 'fullName',
     //   textPlus: 'a/textPlus'
     // })
-
     // fullName() {
     //   return this.$store.getters.fullName
     // }
@@ -106,11 +103,8 @@ export default {
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-.test1 {
-  color: red;
-}
-
-a.active-link {
-  color: red;
-}
+.test1
+  color red
+a.active-link
+  color red
 </style>

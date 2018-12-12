@@ -1,14 +1,29 @@
 <template>
   <div class="real-app">
-    <input type="text" class="add-input" autofocus="autofocus" placeholder="接下来要做点什么" @keyup.enter="addTodo">
-    <Item v-for="(todo,index) in filteredTodos" :todo="todo" :key="index" @del="deleteItem" />
-    <Tabs :filter="filter" :todos="todos" @toggle="toggle" @clearAllCompleted="clearAllCompleted"></Tabs>
+    <div class="tab-container">
+      <tabs :value="tabValue" @change='handleChange'>
+        <tab index="1" label="tab1"/>
+        <tab index="2">
+          <span slot="label" style="color:red;">tab2</span>
+        </tab>
+        <tab index="3" label="tab3"></tab>
+      </tabs>
+    </div>
+    <input
+      @keyup.enter="addTodo"
+      autofocus="autofocus"
+      class="add-input"
+      placeholder="接下来要做点什么"
+      type="text"
+    >
+    <Item :key="index" :todo="todo" @del="deleteItem" v-for="(todo,index) in filteredTodos"/>
+    <helper :filter="filter" :todos="todos" @clearAllCompleted="clearAllCompleted" @toggle="toggle"></helper>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 import Item from './item.vue'
-import Tabs from './tabs.vue'
+import Helper from './tabs.vue'
 
 export default {
   beforeRouteEnter(to, from, next) {
@@ -17,7 +32,7 @@ export default {
       console.log('after enter vm.id is ', vm.id)
     })
   },
-  beforeRouteUpdate (to, from, next) {
+  beforeRouteUpdate(to, from, next) {
     console.log('todo before update')
     next()
     // 同种路由参数不一样时 使用，相较watch 减少开销
@@ -37,12 +52,13 @@ export default {
     return {
       todos: [],
       filter: 'all',
-      id: 0
+      id: 0,
+      tabValue: '1'
     }
   },
   components: {
     Item,
-    Tabs
+    Helper
   },
   methods: {
     addTodo(e) {
@@ -61,6 +77,9 @@ export default {
     },
     clearAllCompleted() {
       this.todos = this.todos.filter(todo => !todo.completed)
+    },
+    handleChange(index) {
+      this.tabValue = index
     }
   },
   computed: {
@@ -76,25 +95,23 @@ export default {
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-.real-app {
-  width: 600px;
-  margin: 0 auto;
-  box-shadow: 0 0 5px #666;
-}
-
-.add-input {
-  position: relative;
-  margin: 0;
-  width: 100%;
-  font-size: 24px;
-}
-
-.test22 {
-  border: 1px soli yellow;
-  background-color: red;
-  box-sizing: border-box;
-  padding: 16px 16px 16p 64px;
-  box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.3);
-  line-height: 1.4em;
-}
+.real-app
+  width 600px
+  margin 0 auto
+  box-shadow 0 0 5px #666
+  .add-input
+    position relative
+    margin 0
+    width 100%
+    font-size 24px
+    // .test22
+    // border 1px soli yellow
+    // background-color red
+    // box-sizing border-box
+    // padding 16px 16px 16p 64px
+    // box-shadow inset 0 -2px 1px rgba(0, 0, 0, 0.3)
+    // line-height 1.4em
+  .tab-container
+    background-color #fff
+    padding 0 10px
 </style>
