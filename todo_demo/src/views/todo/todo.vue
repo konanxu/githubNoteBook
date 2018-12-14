@@ -2,19 +2,26 @@
   <div class="real-app">
     <div class="tab-container">
       <tabs :value="tabValue" @change='handleChange'>
-        <tab index="1" label="tab1"/>
+        <tab index="1" label="tab1">
+          <span>content 1 {{inputContent}}</span>
+        </tab>
         <tab index="2">
           <span slot="label" style="color:red;">tab2</span>
+          <span>content 2 </span>
         </tab>
-        <tab index="3" label="tab3"></tab>
+        <tab index="3" label="tab3">
+          <span>content 3</span>
+        </tab>
       </tabs>
     </div>
+    <p>{{inputContent}}</p>
     <input
       @keyup.enter="addTodo"
       autofocus="autofocus"
       class="add-input"
       placeholder="接下来要做点什么"
       type="text"
+      v-model="inputContent"
     >
     <Item :key="index" :todo="todo" @del="deleteItem" v-for="(todo,index) in filteredTodos"/>
     <helper :filter="filter" :todos="todos" @clearAllCompleted="clearAllCompleted" @toggle="toggle"></helper>
@@ -53,7 +60,8 @@ export default {
       todos: [],
       filter: 'all',
       id: 0,
-      tabValue: '1'
+      tabValue: '1',
+      inputContent: ''
     }
   },
   components: {
